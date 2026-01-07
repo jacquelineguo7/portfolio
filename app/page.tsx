@@ -3,8 +3,11 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="page-container">
-      {/* Grid wrapper with red border */}
-      <div className="grid-wrapper grid-background">
+      {/* Separate grid div element with CSS pattern */}
+      <div className="grid-div"></div>
+
+      {/* Content wrapper - sits on top of grid */}
+      <div className="content-wrapper">
         <div className="business-card">
 
         {/* Binder clip */}
@@ -42,7 +45,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      {/* Close grid-wrapper */}
+      {/* Close content-wrapper */}
       </div>
     </div>
   );

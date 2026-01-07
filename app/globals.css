@@ -56,16 +56,14 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Grid background pattern for the landing page */
+/* Grid background - now uses an actual image instead of CSS pattern */
 .grid-background {
   background-color: #E5DDD5;
-  background-image:
-    linear-gradient(to right, var(--flame-burgundy-32) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--flame-burgundy-32) 1px, transparent 1px);
-  background-size: 30px 30px;
+  /* Background image will be set here - you can add your grid image */
+  background-image: url('/assets/grid-background.png');
+  background-size: cover;
   background-position: center center;
-  /* Clip background to padding box so grid doesn't show in border area */
-  background-clip: padding-box;
+  background-repeat: no-repeat;
 }
 
 /* Paper texture backgrounds */
@@ -95,6 +93,8 @@ body {
   min-height: 100vh;
   /* Beige background fills the entire page */
   background-color: #E5DDD5;
+  /* Position relative so grid-div and content-wrapper can be positioned */
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -117,13 +117,34 @@ body {
   }
 }
 
-/* Grid wrapper - contains just the grid background */
-.grid-wrapper {
+/* Grid div - an actual div element with CSS grid pattern */
+.grid-div {
+  /* Position absolute to sit behind content */
+  position: absolute;
+  width: 90%;
+  max-width: 1200px;
+  height: 80vh;
+  /* CSS grid pattern using linear gradients */
+  background-color: #E5DDD5;
+  background-image:
+    linear-gradient(to right, var(--flame-burgundy-32) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--flame-burgundy-32) 1px, transparent 1px);
+  background-size: 30px 30px;
+  background-position: 0 0;
+  /* Center this div */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Content wrapper - sits on top of grid */
+.content-wrapper {
+  /* Position relative so it sits on top of grid-div */
+  position: relative;
+  z-index: 10;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1200px;
   min-height: 80vh;
-  box-sizing: border-box;
-  /* Center the business card inside the grid */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -131,16 +152,25 @@ body {
 }
 
 @media (min-width: 640px) {
-  .grid-wrapper {
-    /* More padding on larger screens */
+  .grid-div {
+    width: 85%;
+    height: 85vh;
+  }
+
+  .content-wrapper {
     padding: 4rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .grid-wrapper {
-    /* Even more padding on desktop */
+  .grid-div {
+    width: 80%;
+    max-width: 1400px;
+  }
+
+  .content-wrapper {
     padding: 5rem;
+    max-width: 1400px;
   }
 }
 
