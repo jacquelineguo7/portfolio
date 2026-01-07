@@ -3,11 +3,8 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="grid-div">
-      {/* Content wrapper - sits on top of grid pattern */}
       <div className="content-wrapper">
         <div className="business-card">
-
-          {/* Binder clip */}
           <div className="binder-clip-container">
             <Image
               src="/assets/gold-binder-clip.png"
@@ -19,17 +16,13 @@ export default function Home() {
             />
           </div>
 
-          {/* Business card content */}
           <div className="card">
-
-            {/* Yellow paper section */}
-            <div className="yellow-paper yellow-section">
+            <div className="paper-texture yellow-paper yellow-section">
               <h1 className="name-heading">Jacqueline Guo</h1>
               <p className="subtitle">★ PRODUCT DESIGNER</p>
             </div>
 
-            {/* Kraft paper section */}
-            <div className="kraft-paper kraft-section">
+            <div className="paper-texture kraft-paper kraft-section">
               <p className="description">
                 <span className="description-line">Completing CS degree @USC</span>
                 <span className="description-line">Prev: @Apple, landing soon @Persona</span>
@@ -41,11 +34,8 @@ export default function Home() {
               </p>
             </div>
           </div>
-          {/* Close card */}
         </div>
-        {/* Close business-card */}
       </div>
-      {/* Close content-wrapper */}
     </div>
   );
 }

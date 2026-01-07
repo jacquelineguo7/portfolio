@@ -1,9 +1,7 @@
 @import "tailwindcss";
 
-/* Import Hershey-Noailles fonts from local files */
 @font-face {
   font-family: 'Hershey Noailles';
-  /* Changed from external URL to local file path */
   src: url('/fonts/Hershey-Noailles-Times-Duplex-Italic-Regular.woff') format('woff');
   font-weight: 400;
   font-style: italic;
@@ -12,7 +10,6 @@
 
 @font-face {
   font-family: 'Hershey Noailles';
-  /* Changed from external URL to local file path */
   src: url('/fonts/Hershey-Noailles-Times-Duplex-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
@@ -23,8 +20,6 @@
   --background: #ffffff;
   --foreground: #171717;
   --font-hershey: 'Hershey Noailles', serif;
-
-  /* Custom color tokens */
   --ketchup-red: #932823;
   --dark-brown: #3B2D24;
   --flame-burgundy: #762A1A;
@@ -38,8 +33,6 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-monsieur: var(--font-monsieur);
-
-  /* Register custom colors for Tailwind */
   --color-ketchup-red: var(--ketchup-red);
   --color-dark-brown: var(--dark-brown);
 }
@@ -55,40 +48,26 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-  /* Remove default margin */
   margin: 0;
   padding: 0;
-  /* Prevent scrolling but allow content to fit */
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden;
   height: 100vh;
   width: 100vw;
 }
 
-/* Grid background - now uses an actual image instead of CSS pattern */
-.grid-background {
-  background-color: #E5DDD5;
-  /* Background image will be set here - you can add your grid image */
-  background-image: url('/assets/grid-background.png');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-
-/* Paper texture backgrounds */
-.yellow-paper {
-  background-image: url('/assets/yellow-paper.png');
+.paper-texture {
   background-size: cover;
   background-position: center;
+}
+
+.yellow-paper {
+  background-image: url('/assets/yellow-paper.png');
 }
 
 .kraft-paper {
   background-image: url('/assets/kraft-paper.png');
-  background-size: cover;
-  background-position: center;
 }
 
-/* Custom font family classes */
 .font-monsieur {
   font-family: var(--font-monsieur), cursive;
 }
@@ -97,59 +76,31 @@ body {
   font-family: var(--font-hershey), serif;
 }
 
-/* Landing page component styles */
-/* Grid div - now the outer container with grid pattern, texture, and padding */
 .grid-div {
-  /* Calculate size to fit within viewport including margins */
-  /* Mobile: 2rem margin on top, left, right (0 on bottom) */
-  /* So height = 100vh - 2rem (top margin), width = 100vw - 4rem (left + right margins) */
   height: calc(100vh - 2rem);
   width: calc(100vw - 4rem);
-  /* Ensure it never exceeds these dimensions */
   max-height: calc(100vh - 2rem);
   max-width: calc(100vw - 4rem);
-
-  /* Page background: lighter beige + paper texture */
-  /* Lighter beige to compensate for multiply darkening */
   background-color: #F0E8E0;
-  /* Paper texture overlay across entire window */
   background-image:
-    /* Grid pattern on top */
     linear-gradient(to right, var(--flame-burgundy-32) 1px, transparent 1px),
     linear-gradient(to bottom, var(--flame-burgundy-32) 1px, transparent 1px),
-    /* Paper texture underneath */
     url('/assets/paper234l-texture.jpg');
-
-  /* Grid pattern size */
   background-size: 48px 48px, 48px 48px, cover;
-  /* Center the grid pattern */
   background-position: center center, center center, center;
-  /* Fixed attachment locks texture to viewport - won't move during scroll/resize */
   background-attachment: scroll, scroll, fixed;
   background-repeat: repeat, repeat, no-repeat;
-  /* Multiply blend mode - texture will darken what's underneath */
   background-blend-mode: normal, normal, multiply;
-
-  /* Flexbox to center content */
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* Outer margin - thicker on top/left/right, none on bottom */
-  /* Margin only on top, right, left (not bottom) - mobile screens */
   margin: 2rem 2rem 0 2rem;
   box-sizing: border-box;
-
-  /* Border for the grid div */
   border: 1px solid var(--flame-burgundy-84);
-
-  /* Position relative so content-wrapper can be positioned */
   position: relative;
 }
 
-/* Content wrapper - sits on top of grid */
 .content-wrapper {
-  /* Position relative so it sits on top of grid-div */
   position: relative;
   z-index: 10;
   width: 100%;
@@ -163,27 +114,27 @@ body {
 
 @media (min-width: 640px) {
   .grid-div {
-    /* Tablet: 3rem margin on top, left, right */
-    /* height = 100vh - 3rem (top), width = 100vw - 6rem (left + right) */
     height: calc(100vh - 3rem);
     width: calc(100vw - 6rem);
     margin: 3rem 3rem 0 3rem;
   }
-
-  .content-wrapper {
-    padding: 4rem;
-  }
+  .content-wrapper { padding: 4rem; }
+  .binder-clip-container { top: -1.5rem; }
+  .binder-clip-image { width: 80px; height: 80px; }
+  .yellow-section { padding: 3rem; }
+  .name-heading { font-size: 3.75rem; }
+  .subtitle { font-size: 0.875rem; }
+  .kraft-section { padding: 1.5rem 2rem; }
+  .description { font-size: 0.875rem; }
+  .footer-text { font-size: 0.75rem; }
 }
 
 @media (min-width: 1024px) {
   .grid-div {
-    /* Desktop: 4rem margin on top, left, right */
-    /* height = 100vh - 4rem (top), width = 100vw - 8rem (left + right) */
     height: calc(100vh - 4rem);
     width: calc(100vw - 8rem);
     margin: 4rem 4rem 0 4rem;
   }
-
   .content-wrapper {
     padding: 5rem;
     max-width: 1400px;
@@ -205,22 +156,9 @@ body {
   z-index: 10;
 }
 
-@media (min-width: 640px) {
-  .binder-clip-container {
-    top: -1.5rem;
-  }
-}
-
 .binder-clip-image {
   width: 60px;
   height: 60px;
-}
-
-@media (min-width: 640px) {
-  .binder-clip-image {
-    width: 80px;
-    height: 80px;
-  }
 }
 
 .card {
@@ -229,18 +167,10 @@ body {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
 }
 
-
-
 .yellow-section {
   position: relative;
   padding: 2rem;
   text-align: center;
-}
-
-@media (min-width: 640px) {
-  .yellow-section {
-    padding: 3rem;
-  }
 }
 
 .name-heading {
@@ -248,12 +178,6 @@ body {
   font-size: 2.25rem;
   color: var(--ketchup-red);
   margin-bottom: 0.5rem;
-}
-
-@media (min-width: 640px) {
-  .name-heading {
-    font-size: 3.75rem;
-  }
 }
 
 .subtitle {
@@ -265,22 +189,10 @@ body {
   letter-spacing: 0.05em;
 }
 
-@media (min-width: 640px) {
-  .subtitle {
-    font-size: 0.875rem;
-  }
-}
-
 .kraft-section {
   position: relative;
   padding: 1.25rem 1.5rem;
   text-align: center;
-}
-
-@media (min-width: 640px) {
-  .kraft-section {
-    padding: 1.5rem 2rem;
-  }
 }
 
 .description {
@@ -289,12 +201,6 @@ body {
   font-size: 0.75rem;
   margin-bottom: 0.75rem;
   line-height: 1.625;
-}
-
-@media (min-width: 640px) {
-  .description {
-    font-size: 0.875rem;
-  }
 }
 
 .description-line {
@@ -306,10 +212,4 @@ body {
   color: var(--dark-brown);
   font-size: 0.625rem;
   line-height: 1.625;
-}
-
-@media (min-width: 640px) {
-  .footer-text {
-    font-size: 0.75rem;
-  }
 }
