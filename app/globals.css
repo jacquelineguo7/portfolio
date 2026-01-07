@@ -92,8 +92,19 @@ body {
 /* Landing page component styles */
 .page-container {
   min-height: 100vh;
-  /* Beige background fills the entire page */
-  background-color: #E5DDD5;
+  /* Lighter beige to compensate for multiply darkening */
+  background-color: #F0E8E0;
+  /* Paper texture overlay across entire window */
+  background-image: url('/assets/paper234l-texture.jpg');
+  /* Fixed attachment locks texture to viewport - won't move during scroll/resize */
+  background-attachment: fixed;
+  /* Cover fills entire viewport, no repeating */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Multiply blend mode - texture will darken what's underneath */
+  background-blend-mode: multiply;
+  
   /* Position relative so grid-div and content-wrapper can be positioned */
   position: relative;
   display: flex;
@@ -125,13 +136,13 @@ body {
   width: 90%;
   max-width: 1200px;
   height: 80vh;
-  /* CSS grid pattern using linear gradients */
-  background-color: #E5DDD5;
+  /* CSS grid pattern using linear gradients - no background color so texture shows through */
   background-image:
     linear-gradient(to right, var(--flame-burgundy-32) 1px, transparent 1px),
     linear-gradient(to bottom, var(--flame-burgundy-32) 1px, transparent 1px);
-  background-size: 30px 30px;
-  background-position: 0 0;
+  background-size: 48px 48px;
+  /* Changed to center center so grid lines radiate from the middle */
+  background-position: center center;
   border-width: 1px;
   border-color: var(--flame-burgundy-84);
   /* Center this div */
