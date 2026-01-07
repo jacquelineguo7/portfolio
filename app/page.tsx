@@ -24,13 +24,12 @@ export default function Home() {
 
             <div className="paper-texture kraft-paper kraft-section">
               <p className="description">
-                <span className="description-line">Completing CS degree @USC</span>
-                <span className="description-line">Prev: @Apple, landing soon @Persona</span>
+                <span className="description-line left-flush">Completing CS degree @USC</span>
+                <span className="description-line left-flush">Prev: @Apple, landing soon @Persona</span>
               </p>
-              <p className="footer-text">
-                New website soon. Old portfolio ↗
-                <br />
-                Let&apos;s be friends! X / LinkedIn / Email
+              <p className="description">
+                <span className="description-line right-flush">New website soon. Old portfolio ↗</span>
+                <span className="description-line right-flush">Let&apos;s be friends! X / LinkedIn / Email</span>
               </p>
             </div>
           </div>
