@@ -55,6 +55,14 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  /* Remove default margin */
+  margin: 0;
+  padding: 0;
+  /* Prevent scrolling but allow content to fit */
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 100vh;
+  width: 100vw;
 }
 
 /* Grid background - now uses an actual image instead of CSS pattern */
@@ -90,65 +98,53 @@ body {
 }
 
 /* Landing page component styles */
-.page-container {
-  min-height: 100vh;
+/* Grid div - now the outer container with grid pattern, texture, and padding */
+.grid-div {
+  /* Calculate size to fit within viewport including margins */
+  /* Mobile: 2rem margin on top, left, right (0 on bottom) */
+  /* So height = 100vh - 2rem (top margin), width = 100vw - 4rem (left + right margins) */
+  height: calc(100vh - 2rem);
+  width: calc(100vw - 4rem);
+  /* Ensure it never exceeds these dimensions */
+  max-height: calc(100vh - 2rem);
+  max-width: calc(100vw - 4rem);
+
+  /* Page background: lighter beige + paper texture */
   /* Lighter beige to compensate for multiply darkening */
   background-color: #F0E8E0;
   /* Paper texture overlay across entire window */
-  background-image: url('/assets/paper234l-texture.jpg');
+  background-image:
+    /* Grid pattern on top */
+    linear-gradient(to right, var(--flame-burgundy-32) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--flame-burgundy-32) 1px, transparent 1px),
+    /* Paper texture underneath */
+    url('/assets/paper234l-texture.jpg');
+
+  /* Grid pattern size */
+  background-size: 48px 48px, 48px 48px, cover;
+  /* Center the grid pattern */
+  background-position: center center, center center, center;
   /* Fixed attachment locks texture to viewport - won't move during scroll/resize */
-  background-attachment: fixed;
-  /* Cover fills entire viewport, no repeating */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-attachment: scroll, scroll, fixed;
+  background-repeat: repeat, repeat, no-repeat;
   /* Multiply blend mode - texture will darken what's underneath */
-  background-blend-mode: multiply;
-  
-  /* Position relative so grid-div and content-wrapper can be positioned */
-  position: relative;
+  background-blend-mode: normal, normal, multiply;
+
+  /* Flexbox to center content */
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Small padding for mobile screens */
-  padding: 1rem;
+
+  /* Outer margin - thicker on top/left/right, none on bottom */
+  /* Margin only on top, right, left (not bottom) - mobile screens */
+  margin: 2rem 2rem 0 2rem;
   box-sizing: border-box;
-}
 
-@media (min-width: 640px) {
-  .page-container {
-    /* Slightly more padding on tablet */
-    padding: 2rem;
-  }
-}
+  /* Border for the grid div */
+  border: 1px solid var(--flame-burgundy-84);
 
-@media (min-width: 1024px) {
-  .page-container {
-    /* Standard padding on desktop */
-    padding: 3rem;
-  }
-}
-
-/* Grid div - an actual div element with CSS grid pattern */
-.grid-div {
-  /* Position absolute to sit behind content */
-  position: absolute;
-  width: 90%;
-  max-width: 1200px;
-  height: 80vh;
-  /* CSS grid pattern using linear gradients - no background color so texture shows through */
-  background-image:
-    linear-gradient(to right, var(--flame-burgundy-32) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--flame-burgundy-32) 1px, transparent 1px);
-  background-size: 48px 48px;
-  /* Changed to center center so grid lines radiate from the middle */
-  background-position: center center;
-  border-width: 1px;
-  border-color: var(--flame-burgundy-84);
-  /* Center this div */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  /* Position relative so content-wrapper can be positioned */
+  position: relative;
 }
 
 /* Content wrapper - sits on top of grid */
@@ -167,8 +163,11 @@ body {
 
 @media (min-width: 640px) {
   .grid-div {
-    width: 85%;
-    height: 85vh;
+    /* Tablet: 3rem margin on top, left, right */
+    /* height = 100vh - 3rem (top), width = 100vw - 6rem (left + right) */
+    height: calc(100vh - 3rem);
+    width: calc(100vw - 6rem);
+    margin: 3rem 3rem 0 3rem;
   }
 
   .content-wrapper {
@@ -178,8 +177,11 @@ body {
 
 @media (min-width: 1024px) {
   .grid-div {
-    width: 80%;
-    max-width: 1400px;
+    /* Desktop: 4rem margin on top, left, right */
+    /* height = 100vh - 4rem (top), width = 100vw - 8rem (left + right) */
+    height: calc(100vh - 4rem);
+    width: calc(100vw - 8rem);
+    margin: 4rem 4rem 0 4rem;
   }
 
   .content-wrapper {
@@ -226,6 +228,8 @@ body {
   border-radius: 0.125rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
 }
+
+
 
 .yellow-section {
   position: relative;
