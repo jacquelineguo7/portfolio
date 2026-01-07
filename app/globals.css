@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
-/* Import Hershey-Noailles fonts from web URLs */
+/* Import Hershey-Noailles fonts from local files */
 @font-face {
   font-family: 'Hershey Noailles';
-  src: url('http://hershey-noailles.luuse.io/output/Hershey-Noailles-Times-Duplex-Italic-Regular/Hershey-Noailles-Times-Duplex-Italic-Regular.woff') format('woff');
+  /* Changed from external URL to local file path */
+  src: url('/fonts/Hershey-Noailles-Times-Duplex-Italic-Regular.woff') format('woff');
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -11,7 +12,8 @@
 
 @font-face {
   font-family: 'Hershey Noailles';
-  src: url('http://hershey-noailles.luuse.io/output/Hershey-Noailles-Times-Duplex-Bold/Hershey-Noailles-Times-Duplex-Bold.woff') format('woff');
+  /* Changed from external URL to local file path */
+  src: url('/fonts/Hershey-Noailles-Times-Duplex-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -25,6 +27,8 @@
   /* Custom color tokens */
   --ketchup-red: #932823;
   --dark-brown: #3B2D24;
+  --flame-burgundy: #762A1A;
+  --flame-burgundy-32: rgba(118, 42, 26, 0.32);
 }
 
 @theme inline {
@@ -54,10 +58,14 @@ body {
 
 /* Grid background pattern for the landing page */
 .grid-background {
+  background-color: #E5DDD5;
   background-image:
-    linear-gradient(to right, #C9BFB3 1px, transparent 1px),
-    linear-gradient(to bottom, #C9BFB3 1px, transparent 1px);
+    linear-gradient(to right, var(--flame-burgundy-32) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--flame-burgundy-32) 1px, transparent 1px);
   background-size: 30px 30px;
+  background-position: center center;
+  /* Clip background to padding box so grid doesn't show in border area */
+  background-clip: padding-box;
 }
 
 /* Paper texture backgrounds */
@@ -80,4 +88,180 @@ body {
 
 .font-hershey {
   font-family: var(--font-hershey), serif;
+}
+
+/* Landing page component styles */
+.page-container {
+  min-height: 100vh;
+  /* Beige background fills the entire page */
+  background-color: #E5DDD5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Small padding for mobile screens */
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .page-container {
+    /* Slightly more padding on tablet */
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-container {
+    /* Standard padding on desktop */
+    padding: 3rem;
+  }
+}
+
+/* Grid wrapper - contains just the grid background */
+.grid-wrapper {
+  width: 100%;
+  max-width: 1400px;
+  min-height: 80vh;
+  box-sizing: border-box;
+  /* Center the business card inside the grid */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+@media (min-width: 640px) {
+  .grid-wrapper {
+    /* More padding on larger screens */
+    padding: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-wrapper {
+    /* Even more padding on desktop */
+    padding: 5rem;
+  }
+}
+
+.business-card {
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+  z-index: 1;
+}
+
+.binder-clip-container {
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+@media (min-width: 640px) {
+  .binder-clip-container {
+    top: -1.5rem;
+  }
+}
+
+.binder-clip-image {
+  width: 60px;
+  height: 60px;
+}
+
+@media (min-width: 640px) {
+  .binder-clip-image {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.card {
+  overflow: hidden;
+  border-radius: 0.125rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.yellow-section {
+  position: relative;
+  padding: 2rem;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .yellow-section {
+    padding: 3rem;
+  }
+}
+
+.name-heading {
+  font-family: var(--font-monsieur), cursive;
+  font-size: 2.25rem;
+  color: var(--ketchup-red);
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .name-heading {
+    font-size: 3.75rem;
+  }
+}
+
+.subtitle {
+  font-family: var(--font-hershey), serif;
+  font-style: italic;
+  color: var(--ketchup-red);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+@media (min-width: 640px) {
+  .subtitle {
+    font-size: 0.875rem;
+  }
+}
+
+.kraft-section {
+  position: relative;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .kraft-section {
+    padding: 1.5rem 2rem;
+  }
+}
+
+.description {
+  font-family: var(--font-hershey), serif;
+  color: var(--dark-brown);
+  font-size: 0.75rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.625;
+}
+
+@media (min-width: 640px) {
+  .description {
+    font-size: 0.875rem;
+  }
+}
+
+.description-line {
+  display: block;
+}
+
+.footer-text {
+  font-family: var(--font-hershey), serif;
+  color: var(--dark-brown);
+  font-size: 0.625rem;
+  line-height: 1.625;
+}
+
+@media (min-width: 640px) {
+  .footer-text {
+    font-size: 0.75rem;
+  }
 }
