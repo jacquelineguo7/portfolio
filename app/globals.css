@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Grid background pattern for the landing page */
+.grid-background {
+  background-image:
+    linear-gradient(to right, #C9BFB3 1px, transparent 1px),
+    linear-gradient(to bottom, #C9BFB3 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* Paper texture backgrounds */
+.yellow-paper {
+  background-image: url('/assets/yellow-paper.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.kraft-paper {
+  background-image: url('/assets/kraft-paper.png');
+  background-size: cover;
+  background-position: center;
+}
