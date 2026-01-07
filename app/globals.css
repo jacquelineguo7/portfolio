@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
+/* FONT IMPORTS */
+
 @font-face {
-  font-family: 'Hershey Noailles';
+  font-family: 'Hershey Noailles Regular Italic';
   src: url('/fonts/Hershey-Noailles-Times-Duplex-Italic-Regular.woff') format('woff');
   font-weight: 400;
   font-style: italic;
@@ -9,22 +11,27 @@
 }
 
 @font-face {
-  font-family: 'Hershey Noailles';
+  font-family: 'Hershey Noailles Bold';
   src: url('/fonts/Hershey-Noailles-Times-Duplex-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
+
+/* CSS VARIABLES */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
   --font-hershey: 'Hershey Noailles', serif;
+  --background-beige: #EAE7DE;
   --ketchup-red: #932823;
   --dark-brown: #3B2D24;
   --flame-burgundy: #762A1A;
   --flame-burgundy-32: rgba(118, 42, 26, 0.32);
   --flame-burgundy-84: rgba(118, 42, 26, 0.84);
+
+  --background: var(--background-beige);
+  --foreground: var(--dark-brown);
 }
 
 @theme inline {
@@ -37,15 +44,15 @@
   --color-dark-brown: var(--dark-brown);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* BASE STYLES */
 
 body {
-  background: var(--background);
+  background-color: #F0E8E0;
+  background-image: url('/assets/paper234l-texture.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
@@ -55,19 +62,22 @@ body {
   width: 100vw;
 }
 
-.paper-texture {
-  background-size: cover;
-  background-position: center;
-}
+/* UTILITY CLASSES */
 
+/* Background textures */
 .yellow-paper {
   background-image: url('/assets/yellow-paper.png');
+  background-size: 100% 100%;
+  background-position: center;
 }
 
 .kraft-paper {
   background-image: url('/assets/kraft-paper.png');
+  background-size: 100% 100%;
+  background-position: center;
 }
 
+/* Font utilities */
 .font-monsieur {
   font-family: var(--font-monsieur), cursive;
 }
@@ -76,21 +86,20 @@ body {
   font-family: var(--font-hershey), serif;
 }
 
+/* LAYOUT COMPONENTS */
+
+/* Main grid container with background grid pattern */
 .grid-div {
   height: calc(100vh - 2rem);
   width: calc(100vw - 4rem);
   max-height: calc(100vh - 2rem);
   max-width: calc(100vw - 4rem);
-  background-color: #F0E8E0;
   background-image:
     linear-gradient(to right, var(--flame-burgundy-32) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--flame-burgundy-32) 1px, transparent 1px),
-    url('/assets/paper234l-texture.jpg');
-  background-size: 48px 48px, 48px 48px, cover;
-  background-position: center center, center center, center;
-  background-attachment: scroll, scroll, fixed;
-  background-repeat: repeat, repeat, no-repeat;
-  background-blend-mode: normal, normal, multiply;
+    linear-gradient(to bottom, var(--flame-burgundy-32) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: center;
+  background-repeat: repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -100,6 +109,7 @@ body {
   position: relative;
 }
 
+/* Content wrapper inside grid */
 .content-wrapper {
   position: relative;
   z-index: 10;
@@ -112,35 +122,9 @@ body {
   padding: 3rem;
 }
 
-@media (min-width: 640px) {
-  .grid-div {
-    height: calc(100vh - 3rem);
-    width: calc(100vw - 6rem);
-    margin: 3rem 3rem 0 3rem;
-  }
-  .content-wrapper { padding: 4rem; }
-  .binder-clip-container { top: -1.5rem; }
-  .binder-clip-image { width: 80px; height: 80px; }
-  .yellow-section { padding: 3rem; }
-  .name-heading { font-size: 3.75rem; }
-  .subtitle { font-size: 0.875rem; }
-  .kraft-section { padding: 1.5rem 2rem; }
-  .description { font-size: 0.875rem; }
-  .footer-text { font-size: 0.75rem; }
-}
+/* BUSINESS CARD COMPONENTS */
 
-@media (min-width: 1024px) {
-  .grid-div {
-    height: calc(100vh - 4rem);
-    width: calc(100vw - 8rem);
-    margin: 4rem 4rem 0 4rem;
-  }
-  .content-wrapper {
-    padding: 5rem;
-    max-width: 1400px;
-  }
-}
-
+/* Main card container */
 .business-card {
   position: relative;
   max-width: 500px;
@@ -148,9 +132,9 @@ body {
   z-index: 1;
 }
 
+/* Binder clip positioning */
 .binder-clip-container {
   position: absolute;
-  top: -1rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -161,25 +145,38 @@ body {
   height: 60px;
 }
 
+/* Card wrapper */
 .card {
   overflow: hidden;
   border-radius: 0.125rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
 }
 
+/* Yellow section (top of card) */
 .yellow-section {
   position: relative;
   padding: 2rem;
   text-align: center;
 }
 
+/* Kraft section (bottom of card) */
+.kraft-section {
+  position: relative;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+}
+
+/* TYPOGRAPHY */
+
+/* Main name heading */
 .name-heading {
   font-family: var(--font-monsieur), cursive;
-  font-size: 2.25rem;
+  font-size: 5rem;
   color: var(--ketchup-red);
   margin-bottom: 0.5rem;
 }
 
+/* Subtitle text */
 .subtitle {
   font-family: var(--font-hershey), serif;
   font-style: italic;
@@ -189,12 +186,7 @@ body {
   letter-spacing: 0.05em;
 }
 
-.kraft-section {
-  position: relative;
-  padding: 1.25rem 1.5rem;
-  text-align: center;
-}
-
+/* Description text */
 .description {
   font-family: var(--font-hershey), serif;
   color: var(--dark-brown);
@@ -207,9 +199,76 @@ body {
   display: block;
 }
 
+/* Footer text */
 .footer-text {
   font-family: var(--font-hershey), serif;
   color: var(--dark-brown);
   font-size: 0.625rem;
   line-height: 1.625;
+}
+
+/* RESPONSIVE OVERRIDES */
+
+/* Tablet styles (640px and up) */
+@media (min-width: 640px) {
+  /* Layout adjustments */
+  .grid-div {
+    height: calc(100vh - 4rem);
+    width: calc(100vw - 8rem);
+    margin: 4rem 4rem 0 4rem;
+  }
+
+  .content-wrapper {
+    padding: 4rem;
+  }
+
+  /* Business card components */
+  .binder-clip-container {
+    top: -1.5rem;
+  }
+
+  .binder-clip-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .yellow-section {
+    padding: 3rem;
+  }
+
+  .kraft-section {
+    padding: 1.5rem 2rem;
+  }
+
+  /* Typography adjustments */
+  .name-heading {
+    font-size: 3.75rem;
+  }
+
+  .subtitle {
+    font-size: 0.875rem;
+  }
+
+  .description {
+    font-size: 0.875rem;
+  }
+
+  .footer-text {
+    font-size: 0.75rem;
+  }
+}
+
+/* Desktop styles (1024px and up) */
+@media (min-width: 1024px) {
+  /* Layout adjustments */
+  .grid-div {
+    height: calc(100vh - 6rem);
+    width: calc(100vw - 12rem);
+    margin: 6rem 6rem 0 6rem;
+  }
+
+  .content-wrapper {
+    padding: 5rem;
+    max-width: 1400px;
+  }
 }
