@@ -1,8 +1,30 @@
 @import "tailwindcss";
 
+/* Import Hershey-Noailles fonts from web URLs */
+@font-face {
+  font-family: 'Hershey Noailles';
+  src: url('http://hershey-noailles.luuse.io/output/Hershey-Noailles-Times-Duplex-Italic-Regular/Hershey-Noailles-Times-Duplex-Italic-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Hershey Noailles';
+  src: url('http://hershey-noailles.luuse.io/output/Hershey-Noailles-Times-Duplex-Bold/Hershey-Noailles-Times-Duplex-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-hershey: 'Hershey Noailles', serif;
+
+  /* Custom color tokens */
+  --ketchup-red: #932823;
+  --dark-brown: #3B2D24;
 }
 
 @theme inline {
@@ -10,6 +32,11 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-monsieur: var(--font-monsieur);
+
+  /* Register custom colors for Tailwind */
+  --color-ketchup-red: var(--ketchup-red);
+  --color-dark-brown: var(--dark-brown);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -44,4 +71,13 @@ body {
   background-image: url('/assets/kraft-paper.png');
   background-size: cover;
   background-position: center;
+}
+
+/* Custom font family classes */
+.font-monsieur {
+  font-family: var(--font-monsieur), cursive;
+}
+
+.font-hershey {
+  font-family: var(--font-hershey), serif;
 }

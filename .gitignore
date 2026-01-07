@@ -60,3 +60,6 @@ next-env.d.ts
 
 # Optional: temporary context folders (if you don't want to commit these)
 img-context/
+
+# Custom fonts (if you don't want to commit font files)
+app/fonts/
