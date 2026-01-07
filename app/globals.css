@@ -147,25 +147,29 @@ body {
 
 /* Card wrapper */
 .card {
-  overflow: hidden;
-  border-radius: 0.125rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  align-items: center;
 }
+
 
 /* Yellow section (top of card) */
 .yellow-section {
   position: relative;
   padding: 2rem;
   text-align: center;
+  width: 100%;
 }
 
 /* Kraft section (bottom of card) */
 .kraft-section {
+  width: 94%;
   position: relative;
-  padding: 1.25rem 1.5rem;
+  padding: 1rem 1rem;
   text-align: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 /* TYPOGRAPHY */
@@ -176,6 +180,8 @@ body {
   font-size: 5rem;
   color: var(--ketchup-red);
   margin-bottom: 0.5rem;
+  transform: rotate(1deg);
+  margin-left: 0.5rem;
 }
 
 /* Subtitle text */
@@ -203,10 +209,12 @@ body {
 
 .left-flush {
   align-content: start;
+  text-align: left;
 }
 
 .right-flush {
   align-content: end;
+  text-align: right;
 }
 
 /* RESPONSIVE OVERRIDES */
@@ -239,12 +247,12 @@ body {
   }
 
   .kraft-section {
-    padding: 1.5rem 2rem;
+    padding: 1rem 1rem;
   }
 
   /* Typography adjustments */
   .name-heading {
-    font-size: 3.75rem;
+    font-size: 5rem;
   }
 
   .subtitle {
