@@ -132,6 +132,8 @@ body {
   max-width: 500px;
   width: 100%;
   z-index: 1;
+  display: flex; /* Added to help center the card */
+  justify-content: center; /* Centers the card horizontally */
 }
 
 /* Binder clip positioning */
@@ -151,10 +153,11 @@ body {
 
 /* Card wrapper */
 .card {
-  display: flex;
+  display: inline-flex; /* Changed to inline-flex to properly size to content */
   flex-direction: column;
   overflow: visible;
   align-items: center;
+  max-width: 100%; /* Prevents card from exceeding container width */
 }
 
 
@@ -163,23 +166,26 @@ body {
   position: relative;
   padding: 1rem; /* Smaller padding for mobile */
   text-align: center;
-  width: fit-content; /* Changed from 100% to hug contents */
+  width: 100%; /* Fill the card width */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   filter: drop-shadow(0 6px 12px --dark-brown);
+  z-index: 2; /* Yellow paper sits on top of kraft paper */
 }
 
 /* Kraft section (bottom of card) */
 .kraft-section {
-  width: 94%;
+  width: 94%; /* Always 94% of the yellow paper width */
   position: relative;
-  padding: 1rem 1rem;
+  padding: 1rem 1rem 1rem 1rem; /* Added extra 0.5rem top padding */
   text-align: center;
   display: flex;
   flex-direction: row;
   align-content: space-between;
+  margin-top: -1rem; /* Negative margin to peek out from under yellow paper */
+  z-index: 1; /* Kraft paper sits behind yellow paper */
 }
 
 /* TYPOGRAPHY */
@@ -293,7 +299,7 @@ img.asterisk {
   }
 
   .kraft-section {
-    padding: 1rem 1rem;
+    padding: 1.5rem 1rem 1rem 1rem; /* Match the extra top padding from mobile */
   }
 
   /* Typography adjustments */
