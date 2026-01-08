@@ -111,19 +111,6 @@ body {
   position: relative;
 }
 
-/* Content wrapper inside grid */
-.content-wrapper {
-  position: relative;
-  z-index: 10;
-  width: 100%;
-  max-width: 1200px;
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3rem;
-}
-
 /* BUSINESS CARD COMPONENTS */
 
 /* Main card container */
@@ -180,7 +167,7 @@ body {
 .kraft-section {
   width: 90%; /* Always 94% of the yellow paper width */
   position: relative;
-  padding: 2rem 1rem 1rem 1rem; /* Added extra 0.5rem top padding */
+  padding: 1.5rem 1rem 1rem 1rem; /* Added extra 0.5rem top padding */
   text-align: center;
   display: flex;
   flex-direction: column; /* Mobile: single column layout */
@@ -250,10 +237,13 @@ img.asterisk {
 .description {
   font-family: var(--font-hershey), serif;
   color: var(--dark-brown);
-  font-size: 0.3rem;
-  margin-bottom: 0.75rem;
+  font-size: 0.6rem;
   line-height: 1.625;
-  text-align: left; /* Mobile: all text left-aligned */
+  text-align: center; /* Mobile: all text left-aligned */
+}
+
+.bottom-padding {
+  padding-bottom: 0.6rem;
 }
 
 .description-line {
@@ -304,6 +294,7 @@ img.asterisk {
     padding: 1.5rem 1rem 1rem 1rem; /* Match the extra top padding from mobile */
     width: 94%;
     flex-direction: row; /* Tablet+: restore two-column layout */
+    justify-content: space-between;
   }
 
   /* Typography adjustments */
@@ -328,7 +319,11 @@ img.asterisk {
   }
 
   .description {
-    font-size: 0.875rem;
+    font-size: 0.7rem;
+  }
+
+  .bottom-padding {
+    padding-bottom: 0rem;
   }
 
   /* Tablet+: restore right-align for right-flush text */
@@ -358,10 +353,5 @@ img.asterisk {
     height: calc(100vh - 6rem);
     width: calc(100vw - 12rem);
     margin: 6rem 6rem 0 6rem;
-  }
-
-  .content-wrapper {
-    padding: 5rem;
-    max-width: 1400px;
   }
 }
