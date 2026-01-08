@@ -29,6 +29,7 @@
   --flame-burgundy: #762A1A;
   --flame-burgundy-32: rgba(118, 42, 26, 0.32);
   --flame-burgundy-84: rgba(118, 42, 26, 0.84);
+  --sea-blue: #385768;
 
   --background: var(--background-beige);
   --foreground: var(--dark-brown);
@@ -174,6 +175,44 @@ body {
   align-content: space-between;
   margin-top: -1rem; /* Negative margin to peek out from under yellow paper */
   z-index: 1; /* Kraft paper sits behind yellow paper */
+}
+
+/* LINKS */
+
+/* Base link styles - no underline by default */
+a {
+  color: var(--sea-blue);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+/* Create the animated underline using ::after pseudo-element */
+a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background-color: var(--sea-blue);
+  transition: width 0.3s ease-in-out;
+  
+}
+
+/* Hover state - underline animates from left to right */
+a:hover {
+  color: var(--sea-blue);
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* Active/clicked state */
+a:active {
+  color: var(--dark-brown);
 }
 
 /* TYPOGRAPHY */
