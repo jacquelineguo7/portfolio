@@ -158,9 +158,9 @@ body {
 /* Yellow section (top of card) */
 .yellow-section {
   position: relative;
-  padding: 2rem;
+  padding: 1rem; /* Smaller padding for mobile */
   text-align: center;
-  width: 100%;
+  width: fit-content; /* Changed from 100% to hug contents */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -182,7 +182,7 @@ body {
 /* Main name heading */
 .name-heading {
   font-family: var(--font-monsieur), cursive;
-  font-size: 2.5rem; /* Sized to keep "Jacqueline Guo" on one line on mobile */
+  font-size: 3rem; /* Sized to keep "Jacqueline Guo" on one line on mobile */
   color: var(--ketchup-red);
   margin-bottom: 0.5rem;
   white-space: nowrap; /* Prevents text from wrapping to multiple lines */
@@ -196,7 +196,7 @@ body {
   font-family: var(--font-hershey), serif;
   font-style: italic;
   color: var(--ketchup-red);
-  font-size: 0.5rem; /* Smaller base size for mobile, scales up on tablet+ */
+  font-size: 0.6rem; /* Smaller base size for mobile, scales up on tablet+ */
   font-weight: 700;
   letter-spacing: -0.01em;
 }
@@ -228,7 +228,7 @@ img.asterisk {
 .subtitle-row {
   display: flex;
   flex-direction: row;
-  margin-top: -1.5rem; /* No overlap on mobile */
+  margin-top: -1.3rem; /* No overlap on mobile */
   margin-left: 1.5rem; /* Smaller margin for mobile */
   gap: 0.2rem; /* Smaller gap for mobile */
   transform: rotate(-1deg);
@@ -283,7 +283,7 @@ img.asterisk {
   }
 
   .yellow-section {
-    padding: 1.5rem;
+    padding: 2rem; /* Restore larger padding for tablet+ */
   }
 
   .kraft-section {
