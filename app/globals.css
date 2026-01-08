@@ -73,10 +73,22 @@ body {
   background-position: center;
 }
 
+/* Text selection styling for yellow paper items and all children */
+.yellow-paper *::selection {
+  background-color: var(--ketchup-red); /* Ketchup red background */
+  color: #FDF9D4; /* Pale yellow text */
+}
+
 .kraft-paper {
   background-image: url('/assets/kraft-paper.png');
   background-size: 100% 100%;
   background-position: center;
+}
+
+/* Text selection styling for kraft paper items and all children */
+.kraft-paper *::selection {
+  background-color: var(--dark-brown); /* Dark brown background */
+  color: #FDF9D4; /* Pale yellow text */
 }
 
 /* Font utilities */
