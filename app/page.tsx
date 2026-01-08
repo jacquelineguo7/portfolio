@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid-div">
+    <main className="grid-div">
       <div className="business-card">
         <div className="binder-clip-container">
           <Image
@@ -15,8 +15,8 @@ export default function Home() {
           />
         </div>
 
-        <div className="card">
-          <div className="paper-texture yellow-paper yellow-section">
+        <article className="card">
+          <header className="paper-texture yellow-paper yellow-section">
             <div className="heading-row">
               <Image
               src="/assets/copyright.svg"
@@ -40,9 +40,9 @@ export default function Home() {
               />
               <p className="subtitle">PRODUCT DESIGNER</p>
             </div>
-          </div>
+          </header>
 
-          <div className="paper-texture kraft-paper kraft-section">
+          <section className="paper-texture kraft-paper kraft-section">
             <p className="description bottom-padding">
               <span className="description-line left-flush">Completing CS degree at USC</span>
               <span className="description-line left-flush">Landing soon at Persona ☺︎</span>
@@ -51,9 +51,9 @@ export default function Home() {
               <span className="description-line right-flush">See my old portfolio for past work</span>
               <span className="description-line right-flush">Let&apos;s be friends! X / in / Email</span>
             </p>
-          </div>
-        </div>
+          </section>
+        </article>
       </div>
-    </div>
+    </main>
   );
 }
