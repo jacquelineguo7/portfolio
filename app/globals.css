@@ -181,9 +181,10 @@ body {
 /* Main name heading */
 .name-heading {
   font-family: var(--font-monsieur), cursive;
-  font-size: 5rem;
+  font-size: 2.5rem; /* Sized to keep "Jacqueline Guo" on one line on mobile */
   color: var(--ketchup-red);
   margin-bottom: 0.5rem;
+  white-space: nowrap; /* Prevents text from wrapping to multiple lines */
   /* transform: rotate(1deg); */
   /* margin-left: 1.5rem; */
 }
@@ -194,30 +195,41 @@ body {
   font-family: var(--font-hershey), serif;
   font-style: italic;
   color: var(--ketchup-red);
-  font-size: 1rem;
+  font-size: 0.5rem; /* Smaller base size for mobile, scales up on tablet+ */
   font-weight: 700;
   letter-spacing: -0.01em;
 }
 
+/* Icon sizing - Mobile: 12px x 12px */
 .asterisk {
   font-family: var(--font-monsieur), cursive !important;
   font-size: 3rem;
 }
 
+img.asterisk {
+  width: 12px !important;
+  height: 12px !important;
+  min-width: 12px !important;
+  min-height: 12px !important;
+  max-width: 12px !important;
+  max-height: 12px !important;
+}
+
 .heading-row {
   display: flex;
   flex-direction: row;
+  align-items: center;
   transform: rotate(1deg);
-  margin-left: 1rem;
-  gap: 0.5rem;
+  margin-left: 0.5rem; /* Smaller margin for mobile */
+  gap: 0.25rem; /* Smaller gap for mobile */
 }
 
 .subtitle-row {
   display: flex;
   flex-direction: row;
-  margin-top: -2rem;
-  margin-left: 3rem; 
-  gap: 0.4rem;
+  margin-top: -1.0rem; /* No overlap on mobile */
+  margin-left: 1.5rem; /* Smaller margin for mobile */
+  gap: 0.2rem; /* Smaller gap for mobile */
   transform: rotate(-1deg);
 }
 
@@ -286,12 +298,34 @@ body {
     font-size: 1rem;
   }
 
+  /* Restore larger spacing for tablet+ */
+  .heading-row {
+    margin-left: 1rem;
+    gap: 0.5rem;
+  }
+
+  .subtitle-row {
+    margin-top: -2rem;
+    margin-left: 3rem;
+    gap: 0.4rem;
+  }
+
   .description {
     font-size: 0.875rem;
   }
 
   .footer-text {
     font-size: 0.75rem;
+  }
+
+  /* Tablet+: 24px x 24px icons */
+  img.asterisk {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
+    max-width: 24px !important;
+    max-height: 24px !important;
   }
 }
 

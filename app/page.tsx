@@ -22,8 +22,8 @@ export default function Home() {
                 <Image
                 src="/assets/copyright.svg"
                 alt="Red star"
-                width={24}
-                height={24}
+                width={12}
+                height={12}
                 className="asterisk"
                 priority
                 />
@@ -34,8 +34,8 @@ export default function Home() {
                 <Image
                 src="/assets/star.svg"
                 alt="Red star"
-                width={24}
-                height={24}
+                width={12}
+                height={12}
                 className="asterisk"
                 priority
                 />
