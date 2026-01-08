@@ -21,7 +21,7 @@ const monsieurLaDoulaise = Monsieur_La_Doulaise({
 
 export const metadata: Metadata = {
   title: "Jacqueline Guo - Product Designer",
-  description: "Product Designer completing CS degree at USC. Previously @Apple, heading soon @Veronica.",
+  description: "Product Designer completing CS degree at USC. Previously @Apple, landing soon @Persona.",
 };
 
 export default function RootLayout({
