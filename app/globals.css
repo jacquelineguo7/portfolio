@@ -93,7 +93,7 @@ body {
 .grid-div {
   height: 100vh; /* Full height since bottom margin is 0 */
   width: calc(100vw - 4rem);
-  max-height: 100vh;
+  max-height: calc(100vh - 1.9rem);
   max-width: calc(100vw - 4rem);
   background-image:
     linear-gradient(to right, var(--flame-burgundy-32) 1px, transparent 1px),
@@ -267,7 +267,7 @@ img.asterisk {
 @media (min-width: 640px) {
   /* Layout adjustments */
   .grid-div {
-    height: 100vh; /* Full height since bottom margin is 0 */
+    height: calc(100vh - 3.9rem); /* Full height since bottom margin is 0 */
     width: calc(100vw - 8rem);
     margin: 4rem 4rem 0 4rem;
   }
@@ -351,7 +351,7 @@ img.asterisk {
 @media (min-width: 1024px) {
   /* Layout adjustments */
   .grid-div {
-    height: calc(100vh - 6rem); /* Subtract top margin to fit perfectly */
+    height: calc(100vh - 5.9rem); /* Subtract top margin to fit perfectly */
     width: calc(100vw - 12rem);
     margin: 6rem 6rem 0 6rem;
   }
