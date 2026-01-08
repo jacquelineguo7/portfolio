@@ -237,7 +237,7 @@ img.asterisk {
 .description {
   font-family: var(--font-hershey), serif;
   color: var(--dark-brown);
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   line-height: 1.625;
   text-align: center; /* Mobile: all text left-aligned */
 }
@@ -319,7 +319,7 @@ img.asterisk {
   }
 
   .description {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
   }
 
   .bottom-padding {

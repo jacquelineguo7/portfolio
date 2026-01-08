@@ -48,8 +48,8 @@ export default function Home() {
               <span className="description-line left-flush">Landing soon at Persona ☺︎</span>
             </p>
             <p className="description">
-              <span className="description-line right-flush">See my old portfolio for past work.</span>
-              <span className="description-line right-flush">Let&apos;s be friends!  X / in / Email</span>
+              <span className="description-line right-flush">See my old portfolio for past work</span>
+              <span className="description-line right-flush">Let&apos;s be friends! X / in / Email</span>
             </p>
           </div>
         </div>
