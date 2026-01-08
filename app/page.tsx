@@ -9,8 +9,8 @@ export default function Home() {
             <Image
               src="/assets/gold-binder-clip.png"
               alt="Binder clip"
-              width={60}
-              height={60}
+              width={172} // Use the original image width
+              height={198} // Use the original image height
               className="binder-clip-image"
               priority
             />

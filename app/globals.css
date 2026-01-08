@@ -137,13 +137,15 @@ body {
 .binder-clip-container {
   position: absolute;
   left: 50%;
+  top: -40px; /* Position so the clip overlaps the top edge of the yellow paper */
   transform: translateX(-50%);
   z-index: 10;
 }
 
 .binder-clip-image {
-  width: 60px;
-  height: 60px;
+  width: 60px; /* Set only the width */
+  height: auto; /* Let height scale proportionally to maintain aspect ratio */
+  object-fit: contain; /* Ensures the image isn't stretched or distorted */
 }
 
 /* Card wrapper */
@@ -275,12 +277,13 @@ img.asterisk {
 
   /* Business card components */
   .binder-clip-container {
-    top: -1.5rem;
+    top: -60px; /* Larger overlap for tablet+ sizes */
   }
 
   .binder-clip-image {
-    width: 80px;
-    height: 80px;
+    width: 80px; /* Set only the width */
+    height: auto; /* Let height scale proportionally */
+    /* object-fit is inherited from base styles */
   }
 
   .yellow-section {
