@@ -197,7 +197,7 @@ a::after {
   bottom: 2px;
   width: 0;
   height: 3px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath d='M0,2 Q2.5,0 5,2 T10,2 T15,2 T20,2' stroke='%23385768' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath d='M0,2 Q2.5,0 5,2 T10,2 T15,2 T20,2' stroke='%23762A1A' stroke-width='1' fill='none'/%3E%3C/svg%3E");
   background-repeat: repeat-x;
   background-size: 10px 3px;
   background-position: 0 50%;
@@ -206,7 +206,7 @@ a::after {
 
 /* Hover state - wavy underline animates from left to right */
 a:hover {
-  color: var(--sea-blue);
+  color: var(--flame-burgundy);
 }
 
 a:hover::after {
