@@ -267,7 +267,7 @@ img.asterisk {
 @media (min-width: 640px) {
   /* Layout adjustments */
   .grid-div {
-    height: calc(100vh - 4rem);
+    height: calc(100vh - 4rem); /* Subtract top + bottom margin */
     width: calc(100vw - 8rem);
     margin: 4rem 4rem 0 4rem;
   }
