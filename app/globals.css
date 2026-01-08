@@ -47,7 +47,8 @@
 /* BASE STYLES */
 
 body {
-  background-color: #F0E8E0;
+  background-color: --background-beige;
+  background-blend-mode: soft-light;
   background-image: url('/assets/paper234l-texture.jpg');
   background-size: cover;
   background-position: center;
@@ -178,6 +179,7 @@ body {
   text-align: center;
   display: flex;
   flex-direction: row;
+  align-content: space-between;
 }
 
 /* TYPOGRAPHY */
