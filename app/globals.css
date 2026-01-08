@@ -181,17 +181,28 @@ body {
   color: var(--ketchup-red);
   margin-bottom: 0.5rem;
   transform: rotate(1deg);
-  margin-left: 0.5rem;
+  margin-left: 1.5rem;
 }
 
 /* Subtitle text */
 .subtitle {
+  display: inline-block;
   font-family: var(--font-hershey), serif;
   font-style: italic;
   color: var(--ketchup-red);
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: -0.01em;
+}
+
+.asterisk {
+  font-family: var(--font-monsieur), cursive !important;
+  font-size: 3rem;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
 }
 
 /* Description text */
@@ -243,7 +254,7 @@ body {
   }
 
   .yellow-section {
-    padding: 3rem;
+    padding: 1.5rem;
   }
 
   .kraft-section {
@@ -256,7 +267,7 @@ body {
   }
 
   .subtitle {
-    font-size: 0.875rem;
+    font-size: 1rem;
   }
 
   .description {
