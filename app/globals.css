@@ -166,7 +166,8 @@ body {
   position: relative;
   padding: 1rem; /* Smaller padding for mobile */
   text-align: center;
-  width: 100%; /* Fill the card width */
+  width: 100%; /* Fill the card width to properly contain all text */
+  min-width: min-content;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
