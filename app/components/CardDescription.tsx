@@ -8,14 +8,7 @@ export default function CardDescription() {
       {/* Bio section - education and current role */}
       <p className="description bottom-padding">
         <span className="description-line left-flush">
-          Completing{" "}
-          <a
-            href="https://usc.edu/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            CS degree at USC
-          </a>
+          Completing CS degree at USC
         </span>
         <span className="description-line left-flush">
           Landing soon at{" "}
