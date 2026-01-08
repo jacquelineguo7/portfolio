@@ -91,9 +91,9 @@ body {
 
 /* Main grid container with background grid pattern */
 .grid-div {
-  height: calc(100vh - 2rem);
+  height: 100vh; /* Full height since bottom margin is 0 */
   width: calc(100vw - 4rem);
-  max-height: calc(100vh - 2rem);
+  max-height: 100vh;
   max-width: calc(100vw - 4rem);
   background-image:
     linear-gradient(to right, var(--flame-burgundy-32) 1px, transparent 1px),
@@ -267,7 +267,7 @@ img.asterisk {
 @media (min-width: 640px) {
   /* Layout adjustments */
   .grid-div {
-    height: calc(100vh - 4rem); /* Subtract top + bottom margin */
+    height: 100vh; /* Full height since bottom margin is 0 */
     width: calc(100vw - 8rem);
     margin: 4rem 4rem 0 4rem;
   }
@@ -351,7 +351,7 @@ img.asterisk {
 @media (min-width: 1024px) {
   /* Layout adjustments */
   .grid-div {
-    height: calc(100vh - 6rem);
+    height: calc(100vh - 6rem); /* Subtract top margin to fit perfectly */
     width: calc(100vw - 12rem);
     margin: 6rem 6rem 0 6rem;
   }
