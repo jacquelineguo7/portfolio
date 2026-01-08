@@ -106,6 +106,7 @@ body {
   margin: 2rem 2rem 0 2rem;
   box-sizing: border-box;
   border: 1px solid var(--flame-burgundy-84);
+  border-bottom: none;
   position: relative;
 }
 
@@ -227,7 +228,7 @@ img.asterisk {
 .subtitle-row {
   display: flex;
   flex-direction: row;
-  margin-top: -1.0rem; /* No overlap on mobile */
+  margin-top: -1.5rem; /* No overlap on mobile */
   margin-left: 1.5rem; /* Smaller margin for mobile */
   gap: 0.2rem; /* Smaller gap for mobile */
   transform: rotate(-1deg);
