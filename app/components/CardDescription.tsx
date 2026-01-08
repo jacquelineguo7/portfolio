@@ -10,7 +10,7 @@ export default function CardDescription() {
         <span className="description-line left-flush">
           Completing{" "}
           <a
-            href="#USC_LINK_HERE"
+            href="https://usc.edu/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -20,7 +20,7 @@ export default function CardDescription() {
         <span className="description-line left-flush">
           Landing soon at{" "}
           <a
-            href="#PERSONA_LINK_HERE"
+            href="https://withpersona.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -35,7 +35,7 @@ export default function CardDescription() {
         <span className="description-line right-flush">
           See my{" "}
           <a
-            href="#OLD_PORTFOLIO_LINK_HERE"
+            href="https://jacquelineguo.framer.website/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -46,7 +46,7 @@ export default function CardDescription() {
         <span className="description-line right-flush">
           Let&apos;s be friends!{" "}
           <a
-            href="#X_LINK_HERE"
+            href="https://x.com/jacqfolio"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -54,14 +54,14 @@ export default function CardDescription() {
           </a>{" "}
           /{" "}
           <a
-            href="#LINKEDIN_LINK_HERE"
+            href="https://www.linkedin.com/in/jacquelineguo7/"
             target="_blank"
             rel="noopener noreferrer"
           >
             in
           </a>{" "}
           /{" "}
-          <a href="mailto:#EMAIL_HERE">Email</a>
+          <a href="mailto:jacquelineguo7@gmail.com">Email</a>
         </span>
       </p>
     </section>
