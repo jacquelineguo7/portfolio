@@ -18,8 +18,19 @@ export default function Home() {
 
           <div className="card">
             <div className="paper-texture yellow-paper yellow-section">
-              <h1 className="name-heading">Jacqueline Guo</h1>
-              <div className="flex-row">
+              <div className="heading-row">
+                <Image
+                src="/assets/copyright.svg"
+                alt="Red star"
+                width={24}
+                height={24}
+                className="asterisk"
+                priority
+                />
+                <h1 className="name-heading">Jacqueline Guo</h1>
+              </div>
+              
+              <div className="subtitle-row">
                 <Image
                 src="/assets/star.svg"
                 alt="Red star"
