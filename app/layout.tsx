@@ -20,7 +20,7 @@ const monsieurLaDoulaise = Monsieur_La_Doulaise({
 });
 
 export const metadata: Metadata = {
-  title: "Jacqueline Guo - Product Designer",
+  title: "jacqueline guo",
   description: "Product Designer completing CS degree at USC. Previously @Apple, landing soon @Persona.",
 };
 
