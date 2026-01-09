@@ -326,6 +326,7 @@ img.asterisk {
     height: 100vh; /* Full height */
     max-height: 100vh;
     margin: 0; /* No margins at all */
+    border: none;
   }
 
   /* Tighten up card padding */
