@@ -362,7 +362,7 @@ img.asterisk {
 
   /* Smaller description text */
   .description {
-    font-size: 0.7rem; /* Reduced from 0.75rem */
+    font-size: 0.6rem; /* Reduced from 0.75rem */
     line-height: 1.5; /* Tighter line height */
   }
 
@@ -377,12 +377,12 @@ img.asterisk {
 
   /* Smaller asterisk icon */
   img.asterisk {
-    width: 18px !important;
-    height: 18px !important;
-    min-width: 18px !important;
-    min-height: 18px !important;
-    max-width: 18px !important;
-    max-height: 18px !important;
+    width: 16px !important;
+    height: 16px !important;
+    min-width: 16px !important;
+    min-height: 16px !important;
+    max-width: 16px !important;
+    max-height: 16px !important;
   }
 }
 
