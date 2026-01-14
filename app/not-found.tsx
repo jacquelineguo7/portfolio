@@ -36,7 +36,7 @@ export default function NotFound() {
             </p>
             <p className="font-hershey not-found-message">
               {/* Link automatically gets wavy underline from global <a> styles */}
-              find an archived version <a href="https://web.archive.org/web/20230000000000*/jacquelineguo.com">here</a>. Tread carefully!
+              find an archived version <a href="jacquelineguo.framer.website">here</a>. Tread carefully!
             </p>
 
             {/* Final line - link back home */}
