@@ -489,3 +489,89 @@ img.asterisk {
     margin: 6rem 6rem 0 6rem;
   }
 }
+
+/* 404 PAGE STYLES */
+/* These styles reuse existing classes where possible: grid-div, font-monsieur, font-hershey, and <a> link styles */
+
+/* Change background blend mode to exclusion for the 404 page only */
+/* This creates a darker, more mysterious atmosphere */
+body:has(main.grid-div .not-found-container) {
+  background-blend-mode: exclusion;
+}
+
+/* Container for the 404 page content */
+.not-found-container {
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* Crumpled paper background - displays the crumpled paper image */
+.crumpled-paper {
+  background-image: url('/assets/crumpled-paper.png');
+  background-size: contain; /* Makes sure the entire image is visible */
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 4/3; /* Maintains the paper's proportions */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0 8px 16px rgba(59, 45, 36, 0.3)); /* Subtle shadow */
+}
+
+/* Content overlaid on the crumpled paper */
+.not-found-content {
+  text-align: center;
+  padding: 1rem; /* Reduced padding to fit text within paper */
+  max-width: 85%; /* Increased width to better fill the paper */
+}
+
+/* The large "404" heading - font-hershey class provides the font-family */
+.not-found-title {
+  font-size: 4rem; /* Reduced from 5rem to fit within paper height */
+  font-weight: 400;
+  font-style: italic;
+  color: var(--dark-brown);
+  margin: 0 0 0.5rem 0; /* Reduced bottom margin */
+  white-space: nowrap;
+}
+
+/* Message text paragraphs - font-hershey class provides the font-family */
+.not-found-message {
+  font-size: 0.75rem; /* Reduced from 0.875rem to fit better */
+  color: var(--dark-brown);
+  line-height: 1.4; /* Slightly tighter line height */
+  margin: 0;
+}
+
+/* Responsive adjustments for tablets and up */
+@media (min-width: 640px) {
+  .not-found-title {
+    font-size: 5rem; /* Reduced from 6rem to fit within paper */
+  }
+
+  .not-found-message {
+    font-size: 0.875rem; /* Reduced from 1rem to fit better */
+  }
+
+  .not-found-content {
+    padding: 1.5rem; /* Reduced from 3rem to keep text within bounds */
+  }
+}
+
+/* Desktop adjustments */
+@media (min-width: 1024px) {
+  .not-found-title {
+    font-size: 6rem; /* Reduced from 7rem to fit within paper */
+  }
+
+  .not-found-message {
+    font-size: 0.9rem; /* Slightly larger for desktop */
+  }
+}
