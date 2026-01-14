@@ -549,7 +549,8 @@ body:has(.not-found-page) {
   font-weight: 400;
   font-style: italic;
   color: var(--dark-brown);
-  margin: 0 0 0.5rem 0; /* Reduced bottom margin */
+  margin: 0 0 0 0; /* Reduced bottom margin from 0.5rem to 0.25rem for tighter spacing */
+  line-height: 1.2;
   white-space: nowrap;
 }
 
@@ -623,7 +624,7 @@ body:has(.not-found-page) {
 
   /* Border to frame the preview */
   border: 2px solid var(--pale-white);
-  
+
   /* Ensure the image scales proportionally */
   object-fit: cover;
 }
