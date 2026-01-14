@@ -30,6 +30,7 @@
   --flame-burgundy-32: rgba(118, 42, 26, 0.32);
   --flame-burgundy-84: rgba(118, 42, 26, 0.84);
   --sea-blue: #385768;
+  --pale-white: #F3F3F3;
 
   --background: var(--background-beige);
   --foreground: var(--dark-brown);
@@ -584,4 +585,45 @@ body:has(.not-found-page) {
   .not-found-message {
     font-size: 0.9rem; /* Slightly larger for desktop */
   }
+}
+
+/* LINK PREVIEW IMAGE STYLES */
+/* This creates the floating preview image that follows the cursor when hovering over links */
+
+.link-preview {
+  /* Position fixed so it stays relative to the viewport (screen) */
+  position: fixed;
+
+  /* Pointer events none means the image won't block mouse interactions */
+  /* This prevents the image from interfering with hovering over the link */
+  pointer-events: none;
+
+  /* Z-index ensures the preview appears above everything else */
+  z-index: 9999;
+
+  /* Transform: translate offsets the image so it appears next to the cursor, not directly under it */
+  /* The 20px, -130px moves it to the right and UP from the cursor (negative Y moves up) */
+  /* The -130px accounts for the image height (120px) plus some spacing */
+  transform: translate(20px, -40px);
+
+  /* Smooth fade-in animation when the preview appears */
+  animation: fadeIn 0.2s ease-in-out;
+
+  /* Add a subtle drop shadow to make the preview stand out */
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.preview-image {
+  /* Set the size of the preview image */
+  width: 120px;
+  height: auto;
+
+  /* Rounded corners for a softer look */
+  /* border-radius: 4px;
+
+  /* Border to frame the preview */
+  border: 2px solid var(--pale-white);
+  
+  /* Ensure the image scales proportionally */
+  object-fit: cover;
 }

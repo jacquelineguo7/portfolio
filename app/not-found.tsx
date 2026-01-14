@@ -8,7 +8,24 @@
  * - font-hershey: Serif font for body text (same as card description)
  * - <a> tags: Automatically get the wavy underline animation from global styles
  */
+
+// Making this a Client Component so we can use React hooks (useState, useEffect)
+// for tracking cursor position and showing/hiding the preview images
+"use client";
+
+import { useState } from 'react';
+
 export default function NotFound() {
+  // State to track which link is being hovered (null, 'portfolio', or 'home')
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+
+  // State to track the cursor position (x and y coordinates)
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+
+  // Function that updates cursor position when mouse moves over a link
+  const handleMouseMove = (e: React.MouseEvent) => {
+    setCursorPosition({ x: e.clientX, y: e.clientY });
+  };
   return (
     // Main container - REUSES grid-div class for the grid background
     // Added "not-found-page" class to enable the exclusion blend mode
@@ -36,17 +53,57 @@ export default function NotFound() {
             </p>
             <p className="font-hershey not-found-message">
               {/* Link automatically gets wavy underline from global <a> styles */}
-              find an archived version <a href="https://jacquelineguo.framer.website">here</a>. Tread carefully!
+              {/* Added event handlers: onMouseEnter shows preview, onMouseMove tracks cursor, onMouseLeave hides preview */}
+              find an archived version <a
+                href="https://jacquelineguo.framer.website"
+                onMouseEnter={() => setHoveredLink('portfolio')}
+                onMouseMove={handleMouseMove}
+                onMouseLeave={() => setHoveredLink(null)}
+              >here</a>. Tread carefully!
             </p>
 
             {/* Final line - link back home */}
             <p className="font-hershey not-found-message" style={{ marginTop: '1rem' }}>
               {/* Link automatically gets wavy underline from global <a> styles */}
-              Otherwise, here's a way back <a href="/">home</a>.
+              {/* Added event handlers: onMouseEnter shows preview, onMouseMove tracks cursor, onMouseLeave hides preview */}
+              Otherwise, here's a way back <a
+                href="/"
+                onMouseEnter={() => setHoveredLink('home')}
+                onMouseMove={handleMouseMove}
+                onMouseLeave={() => setHoveredLink(null)}
+              >home</a>.
             </p>
           </div>
         </div>
       </div>
+
+      {/* Floating preview image that follows the cursor */}
+      {/* Only shows when hoveredLink is not null */}
+      {hoveredLink && (
+        <div
+          className="link-preview"
+          style={{
+            left: `${cursorPosition.x}px`, // Position horizontally at cursor
+            top: `${cursorPosition.y}px`,  // Position vertically at cursor
+          }}
+        >
+          {/* Show different preview image depending on which link is hovered */}
+          {hoveredLink === 'portfolio' && (
+            <img
+              src="/assets/old-portfolio-thumbnail.png"
+              alt="Old portfolio preview"
+              className="preview-image"
+            />
+          )}
+          {hoveredLink === 'home' && (
+            <img
+              src="/assets/home-thumbnail.png"
+              alt="Home page preview"
+              className="preview-image"
+            />
+          )}
+        </div>
+      )}
     </main>
   );
 }
