@@ -493,10 +493,20 @@ img.asterisk {
 /* 404 PAGE STYLES */
 /* These styles reuse existing classes where possible: grid-div, font-monsieur, font-hershey, and <a> link styles */
 
-/* Change background blend mode to exclusion for the 404 page only */
+/* Change background to dark slate for the 404 page only */
 /* This creates a darker, more mysterious atmosphere */
-body:has(main.grid-div .not-found-container) {
-  background-blend-mode: exclusion;
+body:has(.not-found-page) {
+  background-color: #303740 !important; /* Dark slate */
+  background-blend-mode: multiply !important; /* Darkens the texture */
+}
+
+/* Change grid color to powder sea on 404 page */
+/* More specific selector to override grid-div's burgundy grid */
+.grid-div.not-found-page {
+  background-image:
+    linear-gradient(to right, #465E68 1px, transparent 1px),
+    linear-gradient(to bottom, #465E68 1px, transparent 1px) !important;
+  border-color: #465E68 !important; /* Also change the border to powder sea */
 }
 
 /* Container for the 404 page content */

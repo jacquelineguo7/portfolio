@@ -11,7 +11,8 @@
 export default function NotFound() {
   return (
     // Main container - REUSES grid-div class for the grid background
-    <main className="grid-div">
+    // Added "not-found-page" class to enable the exclusion blend mode
+    <main className="grid-div not-found-page">
       {/* Container for the crumpled paper note */}
       <div className="not-found-container">
         {/* The crumpled paper background image */}
