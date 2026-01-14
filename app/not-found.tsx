@@ -32,7 +32,7 @@ export default function NotFound() {
 
             {/* Second paragraph - mention of old portfolio */}
             <p className="font-hershey not-found-message" style={{ marginTop: '1rem' }}>
-              If you're searching for Jacqueline's old portfolio, you can
+              If you're searching for my old portfolio, you can
             </p>
             <p className="font-hershey not-found-message">
               {/* Link automatically gets wavy underline from global <a> styles */}
