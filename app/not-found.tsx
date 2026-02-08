@@ -51,7 +51,7 @@ export default function NotFound() {
             <p className="font-hershey not-found-message" style={{ marginTop: '1rem' }}>
               {/* Link automatically gets wavy underline from global <a> styles */}
               {/* Added event handlers: onMouseEnter shows preview, onMouseMove tracks cursor, onMouseLeave hides preview */}
-              Otherwise, here's a way back <a
+              Here's a way back <a
                 href="/"
                 onMouseEnter={() => setHoveredLink('home')}
                 onMouseMove={handleMouseMove}
