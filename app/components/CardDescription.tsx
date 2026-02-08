@@ -27,13 +27,6 @@ export default function CardDescription() {
       <p className="description">
         <span className="description-line right-flush">
           New portfolio loading... {" "}
-          <a
-            href="https://jacquelineguo.framer.website/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            see past work
-          </a>
         </span>
         <span className="description-line right-flush">
           Let&apos;s be friends: {" "}
