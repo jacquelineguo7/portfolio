@@ -47,22 +47,7 @@ export default function NotFound() {
               mysterious place that no longer has any content.
             </p>
 
-            {/* Second paragraph - mention of old portfolio */}
-            <p className="font-hershey not-found-message" style={{ marginTop: '1rem' }}>
-              If you're searching for my old portfolio, you can
-            </p>
-            <p className="font-hershey not-found-message">
-              {/* Link automatically gets wavy underline from global <a> styles */}
-              {/* Added event handlers: onMouseEnter shows preview, onMouseMove tracks cursor, onMouseLeave hides preview */}
-              find an archived version <a
-                href="https://jacquelineguo.framer.website"
-                onMouseEnter={() => setHoveredLink('portfolio')}
-                onMouseMove={handleMouseMove}
-                onMouseLeave={() => setHoveredLink(null)}
-              >here</a>. Tread carefully!
-            </p>
-
-            {/* Final line - link back home */}
+            {/* Link back home */}
             <p className="font-hershey not-found-message" style={{ marginTop: '1rem' }}>
               {/* Link automatically gets wavy underline from global <a> styles */}
               {/* Added event handlers: onMouseEnter shows preview, onMouseMove tracks cursor, onMouseLeave hides preview */}
@@ -87,14 +72,6 @@ export default function NotFound() {
             top: `${cursorPosition.y}px`,  // Position vertically at cursor
           }}
         >
-          {/* Show different preview image depending on which link is hovered */}
-          {hoveredLink === 'portfolio' && (
-            <img
-              src="/assets/old-portfolio-thumbnail.png"
-              alt="Old portfolio preview"
-              className="preview-image"
-            />
-          )}
           {hoveredLink === 'home' && (
             <img
               src="/assets/home-thumbnail.png"
