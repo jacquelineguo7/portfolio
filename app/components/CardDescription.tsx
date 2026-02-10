@@ -32,14 +32,15 @@ export default function CardDescription() {
             rel="noopener noreferrer"
           >
             See past work
-          </a>{" or "}
+          {/* </a>{" or "}
           <a
             href="/blog"
             target="_blank"
             rel="noopener noreferrer"
           >
             read writing
-          </a>{" "}
+          */}
+          </a> 
         </span>
         <span className="description-line right-flush">
           Let&apos;s be friends: {" "}
