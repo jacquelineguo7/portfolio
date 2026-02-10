@@ -974,28 +974,32 @@ body:has(.blog-page) {
   max-width: 860px;
   margin: 0 auto;
   width: 100%;
+  padding: 2rem 2.5rem 3rem 2.5rem;
+  background: var(--pale-white);
+  filter: drop-shadow(0 4px 16px rgba(59, 45, 36, 0.15));
 }
 
-/* Light paper-like card behind the content */
-.blog-article {
-  background: var(--pale-white);
-  border-radius: 2px;
-  padding: 3rem 2.5rem;
-  box-shadow: 0 1px 8px rgba(59, 45, 36, 0.06);
+/* Article pad header — matches the index page pad style */
+.blog-article-pad-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
 }
 
 /* Post header area */
 .blog-post-header {
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin: 1rem 0 0.5rem 0;
 }
 
 .blog-post-title {
   font-size: 2.5rem;
-  color: var(--dark-brown);
-  margin: 0.5rem 0 0 0;
+  color: var(--ketchup-red);
+  margin: 0;
   font-weight: 400;
   line-height: 1.15;
+  font-style: italic;
 }
 
 /* Cover image */
@@ -1152,7 +1156,7 @@ body:has(.blog-page) {
   }
 
   .blog-article {
-    padding: 3.5rem 3rem;
+    padding: 2.5rem 3rem 3.5rem 3rem;
   }
 }
 
@@ -1176,7 +1180,7 @@ body:has(.blog-page) {
   }
 
   .blog-article {
-    padding: 4rem 3.5rem;
+    padding: 2.5rem 3.5rem 4rem 3.5rem;
   }
 
   .blog-post-title {

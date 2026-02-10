@@ -114,13 +114,22 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
         {/* Main content area */}
         <article className="blog-article">
-          {/* Post header */}
-          <header className="blog-post-header">
-            <span className="blog-post-meta font-hershey">
+          {/* Paper-style header to match the index page */}
+          <div className="blog-article-pad-header">
+            <span className="paper-pad-no font-hershey">NO.</span>
+            <span className="paper-pad-count font-hershey">
               {readTime} — {formattedDate}
             </span>
+          </div>
+
+          <div className="paper-pad-divider-thick"></div>
+
+          {/* Post title */}
+          <header className="blog-post-header">
             <h1 className="blog-post-title font-hershey">{post.title}</h1>
           </header>
+
+          <div className="paper-pad-divider-thick"></div>
 
           {/* Cover image */}
           {post.coverImage && (
