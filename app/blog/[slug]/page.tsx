@@ -119,7 +119,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <span className="blog-post-meta font-hershey">
               {readTime} — {formattedDate}
             </span>
-            <h1 className="blog-post-title font-monsieur">{post.title}</h1>
+            <h1 className="blog-post-title font-hershey">{post.title}</h1>
           </header>
 
           {/* Cover image */}
