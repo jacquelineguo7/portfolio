@@ -32,7 +32,7 @@ export default function CardDescription() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            old work here
+            see past work
           </a>{" "}
         </span>
         <span className="description-line right-flush">
