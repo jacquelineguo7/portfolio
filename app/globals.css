@@ -18,11 +18,44 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Uncut Sans';
+  src: url('/fonts/UncutSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Uncut Sans';
+  src: url('/fonts/UncutSans-RegularItalic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Uncut Sans';
+  src: url('/fonts/UncutSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Uncut Sans';
+  src: url('/fonts/UncutSans-BoldItalic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 
 /* CSS VARIABLES */
 
 :root {
   --font-hershey: 'Hershey Noailles', serif;
+  --font-uncut: 'Uncut Sans', sans-serif;
   --background-beige: #EAE7DE;
   --ketchup-red: #932823;
   --dark-brown: #3B2D24;
@@ -109,6 +142,10 @@ body {
 
 .font-hershey {
   font-family: var(--font-hershey), serif;
+}
+
+.font-uncut {
+  font-family: var(--font-uncut), sans-serif;
 }
 
 /* LAYOUT COMPONENTS */
@@ -627,4 +664,465 @@ body:has(.not-found-page) {
 
   /* Ensure the image scales proportionally */
   object-fit: cover;
+}
+
+
+/* ============================================ */
+/* BLOG STYLES                                  */
+/* ============================================ */
+
+/*
+ * Blog pages need to scroll (unlike the fixed-viewport business card).
+ * The :has() selector targets <body> when a .blog-page element is inside it,
+ * overriding the overflow:hidden and height:100vh from the base body styles.
+ */
+body:has(.blog-page) {
+  overflow: auto !important;
+  height: auto !important;
+}
+
+/* Base layout for all blog pages */
+.blog-page {
+  min-height: 100vh;
+  padding: 1.5rem;
+}
+
+/* ---- NAVIGATION ---- */
+
+.blog-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1.25rem 2rem;
+  z-index: 100;
+}
+
+.blog-back-link {
+  font-family: var(--font-hershey), serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--dark-brown);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+
+/* Override the global wavy underline for blog nav links */
+.blog-back-link::after {
+  display: none;
+}
+
+.blog-back-link:hover {
+  color: var(--flame-burgundy);
+}
+
+
+/* ============================================ */
+/* BLOG INDEX PAGE                              */
+/* ============================================ */
+
+.blog-index-main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 5rem 1rem 4rem 1rem;
+}
+
+.blog-index-header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.blog-index-title {
+  font-size: 4rem;
+  color: var(--ketchup-red);
+  margin: 0 0 0.5rem 0;
+  font-weight: 400;
+}
+
+.blog-index-subtitle {
+  font-size: 0.85rem;
+  color: var(--dark-brown);
+  font-style: italic;
+  margin: 0;
+  opacity: 0.7;
+}
+
+.blog-empty {
+  text-align: center;
+  font-style: italic;
+  color: var(--dark-brown);
+  opacity: 0.6;
+}
+
+/* Post list */
+.blog-post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Each post card is a link — remove default link styles */
+.blog-post-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease;
+}
+
+.blog-post-card::after {
+  display: none; /* Remove wavy underline from card links */
+}
+
+.blog-post-card:hover {
+  color: inherit;
+  transform: translateY(-2px);
+}
+
+.blog-post-card-inner {
+  padding: 1.75rem 2rem;
+  transition: box-shadow 0.2s ease;
+}
+
+.blog-post-card:hover .blog-post-card-inner {
+  box-shadow: 0 4px 20px rgba(59, 45, 36, 0.12);
+}
+
+.blog-post-meta {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--dark-brown);
+  opacity: 0.5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.blog-post-card-title {
+  font-size: 1.8rem;
+  color: var(--dark-brown);
+  margin: 0 0 0.5rem 0;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.blog-post-card-desc {
+  font-size: 0.8rem;
+  color: var(--dark-brown);
+  opacity: 0.7;
+  margin: 0;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* Tags */
+.blog-post-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.blog-tag {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--flame-burgundy);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--flame-burgundy-32);
+  border-radius: 2px;
+}
+
+
+/* ============================================ */
+/* BLOG POST PAGE                               */
+/* ============================================ */
+
+/* Two-column layout: sidebar TOC + main article */
+.blog-post-layout {
+  display: flex;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 1rem 4rem 1rem;
+  gap: 3rem;
+}
+
+/* ---- TABLE OF CONTENTS SIDEBAR ---- */
+
+.blog-toc {
+  display: none; /* Hidden on mobile, shown on desktop */
+}
+
+.blog-toc-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--dark-brown);
+  margin: 0 0 0.75rem 0;
+  letter-spacing: 0.02em;
+}
+
+.blog-toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.blog-toc-link {
+  font-size: 0.75rem;
+  color: var(--dark-brown);
+  opacity: 0.55;
+  text-decoration: none;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  line-height: 1.4;
+}
+
+/* Remove wavy underline from TOC links */
+.blog-toc-link::after {
+  display: none;
+}
+
+.blog-toc-link:hover {
+  opacity: 1;
+  color: var(--flame-burgundy);
+}
+
+/* Active heading highlight */
+.blog-toc-link-active {
+  opacity: 1;
+  color: var(--flame-burgundy);
+  font-weight: 700;
+}
+
+/* Indent h3 items in the TOC */
+.blog-toc-link-nested {
+  padding-left: 0.75rem;
+  font-size: 0.7rem;
+}
+
+/* ---- ARTICLE ---- */
+
+.blog-article {
+  flex: 1;
+  max-width: 680px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Light paper-like card behind the content */
+.blog-article {
+  background: var(--pale-white);
+  border-radius: 2px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 1px 8px rgba(59, 45, 36, 0.06);
+}
+
+/* Post header area */
+.blog-post-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.blog-post-title {
+  font-size: 2.5rem;
+  color: var(--dark-brown);
+  margin: 0.5rem 0 0 0;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+/* Cover image */
+.blog-cover-image-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 2.5rem auto;
+}
+
+.blog-cover-image {
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ---- MARKDOWN CONTENT TYPOGRAPHY ---- */
+
+.blog-content {
+  color: var(--dark-brown);
+  font-family: var(--font-uncut), sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.75;
+}
+
+.blog-content h2 {
+  font-family: var(--font-hershey), serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--dark-brown);
+  margin: 2.5rem 0 0.75rem 0;
+  letter-spacing: 0.01em;
+  font-style: italic;
+}
+
+.blog-content h2:first-child {
+  margin-top: 0;
+}
+
+.blog-content h3 {
+  font-family: var(--font-hershey), serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--dark-brown);
+  margin: 2rem 0 0.5rem 0;
+}
+
+.blog-content p {
+  margin: 0 0 1.25rem 0;
+}
+
+.blog-content p:last-child {
+  margin-bottom: 0;
+}
+
+.blog-content strong {
+  font-weight: 700;
+  color: var(--dark-brown);
+}
+
+.blog-content em {
+  font-style: italic;
+}
+
+.blog-content a {
+  color: var(--sea-blue);
+}
+
+.blog-content ul,
+.blog-content ol {
+  margin: 0 0 1.25rem 1.5rem;
+  padding: 0;
+}
+
+.blog-content li {
+  margin-bottom: 0.4rem;
+}
+
+.blog-content blockquote {
+  border-left: 2px solid var(--flame-burgundy-32);
+  margin: 1.5rem 0;
+  padding: 0.5rem 0 0.5rem 1.25rem;
+  color: var(--dark-brown);
+  opacity: 0.8;
+  font-style: italic;
+}
+
+.blog-content code {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.78rem;
+  background: rgba(59, 45, 36, 0.06);
+  padding: 0.15rem 0.4rem;
+  border-radius: 2px;
+}
+
+.blog-content pre {
+  background: rgba(59, 45, 36, 0.06);
+  padding: 1rem 1.25rem;
+  border-radius: 2px;
+  overflow-x: auto;
+  margin: 0 0 1.25rem 0;
+}
+
+.blog-content pre code {
+  background: none;
+  padding: 0;
+}
+
+.blog-content hr {
+  border: none;
+  border-top: 1px solid var(--flame-burgundy-32);
+  margin: 2rem 0;
+}
+
+/* Image within post content */
+.blog-content-image-wrapper {
+  display: block;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.blog-content-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+
+
+/* ============================================ */
+/* BLOG RESPONSIVE STYLES                       */
+/* ============================================ */
+
+/* Tablet (640px+) */
+@media (min-width: 640px) {
+  .blog-page {
+    padding: 2rem;
+  }
+
+  .blog-nav {
+    padding: 1.5rem 3rem;
+  }
+
+  .blog-index-main {
+    padding-top: 6rem;
+  }
+
+  .blog-post-layout {
+    padding-top: 5rem;
+  }
+
+  .blog-post-title {
+    font-size: 3rem;
+  }
+
+  .blog-article {
+    padding: 3.5rem 3rem;
+  }
+}
+
+/* Desktop (1024px+): Show table of contents sidebar */
+@media (min-width: 1024px) {
+  .blog-nav {
+    padding: 2rem 4rem;
+  }
+
+  .blog-toc {
+    display: block;
+    position: sticky;
+    top: 5rem;
+    align-self: flex-start;
+    width: 180px;
+    flex-shrink: 0;
+  }
+
+  .blog-post-layout {
+    padding: 5rem 2rem 4rem 2rem;
+  }
+
+  .blog-article {
+    padding: 4rem 3.5rem;
+  }
+
+  .blog-post-title {
+    font-size: 3.2rem;
+  }
+
+  .blog-index-title {
+    font-size: 5rem;
+  }
 }

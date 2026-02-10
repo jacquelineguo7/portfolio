@@ -3,7 +3,14 @@
     "allow": [
       "Bash(lsof:*)",
       "Bash(xargs kill:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(npm install:*)",
+      "WebFetch(domain:benji.org)",
+      "WebFetch(domain:www.makingsoftware.com)",
+      "Bash(npx next build:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(curl:*)",
+      "Bash(ls:*)"
     ]
   }
 }
