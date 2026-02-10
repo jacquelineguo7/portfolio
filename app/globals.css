@@ -679,6 +679,7 @@ body:has(.not-found-page) {
 body:has(.blog-page) {
   overflow: auto !important;
   height: auto !important;
+  background-attachment: fixed !important;
 }
 
 /* Base layout for all blog pages */
@@ -846,7 +847,7 @@ body:has(.blog-page) {
 /* Two-column layout: sidebar TOC + main article */
 .blog-post-layout {
   display: flex;
-  max-width: 1100px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 4rem 1rem 4rem 1rem;
   gap: 3rem;
@@ -911,7 +912,7 @@ body:has(.blog-page) {
 
 .blog-article {
   flex: 1;
-  max-width: 680px;
+  max-width: 760px;
   margin: 0 auto;
   width: 100%;
 }
