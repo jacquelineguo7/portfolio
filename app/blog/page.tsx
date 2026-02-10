@@ -1,13 +1,10 @@
 /**
  * Blog Index Page — /blog
  *
- * This is a SERVER component (no 'use client' directive).
- * It reads all .md files at build time and renders a list of post cards.
+ * Displays all posts as line items on a single piece of vintage lined paper,
+ * inspired by to-do lists and restaurant receipt pads.
  *
- * KEY CONCEPT: In Next.js App Router, components are server components by
- * default. This means they can directly call filesystem functions (like our
- * blog utility) without needing an API route. The code here runs on the
- * server during build or request — it's never sent to the browser.
+ * SERVER component — reads .md files at build time.
  */
 
 import Link from "next/link";
@@ -39,48 +36,57 @@ export default function BlogIndex() {
           </p>
         </header>
 
-        {posts.length === 0 ? (
-          <p className="blog-empty font-hershey">No posts yet. Check back soon!</p>
-        ) : (
-          <ul className="blog-post-list">
-            {posts.map((post) => {
-              // Get reading time by loading the full post content
-              const fullPost = getPostBySlug(post.slug);
-              const readTime = fullPost ? getReadingTime(fullPost.content) : "1 min";
+        {/* The paper "pad" */}
+        <div className="paper-pad yellow-paper">
+          {/* Paper header */}
+          <div className="paper-pad-header">
+            <span className="paper-pad-no font-hershey">NO.</span>
+            <div className="paper-pad-title-box">
+              <span className="paper-pad-label font-hershey">POSTS</span>
+            </div>
+            <span className="paper-pad-count font-hershey">
+              {posts.length}/{posts.length}
+            </span>
+          </div>
 
-              return (
-                <li key={post.slug}>
-                  <Link href={`/blog/${post.slug}`} className="blog-post-card">
-                    <div className="blog-post-card-inner kraft-paper">
-                      <span className="blog-post-meta font-hershey">
-                        {readTime} — {new Date(post.date).toLocaleDateString("en-US", {
-                          month: "short",
-                          day: "numeric",
-                          year: "numeric",
-                        }).toUpperCase()}
-                      </span>
-                      <h2 className="blog-post-card-title font-monsieur">
-                        {post.title}
-                      </h2>
-                      <p className="blog-post-card-desc font-hershey">
-                        {post.description}
-                      </p>
-                      {post.tags && (
-                        <div className="blog-post-tags">
-                          {post.tags.map((tag) => (
-                            <span key={tag} className="blog-tag font-hershey">
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                    </div>
+          <div className="paper-pad-divider-thick"></div>
+
+          {/* Lined area with posts as line items */}
+          <div className="paper-pad-lined">
+            {posts.length === 0 ? (
+              <div className="paper-pad-line">
+                <span className="paper-pad-empty font-hershey">
+                  Nothing here yet. Check back soon!
+                </span>
+              </div>
+            ) : (
+              posts.map((post, index) => {
+                const fullPost = getPostBySlug(post.slug);
+                const readTime = fullPost ? getReadingTime(fullPost.content) : "1 min";
+                const formattedDate = new Date(post.date).toLocaleDateString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                }).toLowerCase();
+
+                return (
+                  <Link
+                    key={post.slug}
+                    href={`/blog/${post.slug}`}
+                    className="paper-pad-line"
+                  >
+                    <span className="paper-pad-bullet">○</span>
+                    <span className="paper-pad-line-text font-hershey">
+                      {post.title}
+                    </span>
+                    <span className="paper-pad-line-date font-hershey">
+                      {formattedDate}
+                    </span>
                   </Link>
-                </li>
-              );
-            })}
-          </ul>
-        )}
+                );
+              })
+            )}
+          </div>
+        </div>
       </main>
     </div>
   );

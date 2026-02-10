@@ -710,6 +710,9 @@ body:has(.blog-page) {
 
 
 
+
+
+
 /* Override the global wavy underline for blog nav links */
 .blog-back-link::after {
   display: none;
@@ -725,13 +728,13 @@ body:has(.blog-page) {
 /* ============================================ */
 
 .blog-index-main {
-  max-width: 640px;
+  max-width: 540px;
   margin: 0 auto;
   padding: 5rem 1rem 4rem 1rem;
 }
 
 .blog-index-header {
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
   text-align: center;
 }
 
@@ -750,95 +753,149 @@ body:has(.blog-page) {
   opacity: 0.7;
 }
 
-.blog-empty {
-  text-align: center;
-  font-style: italic;
-  color: var(--dark-brown);
-  opacity: 0.6;
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+  .blog-index-title {
+    font-size: 5rem;
+  }
 }
 
-/* Post list */
-.blog-post-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* ---- PAPER PAD (to-do list style) ---- */
+
+/* The pad container — single piece of yellow paper */
+.paper-pad {
+  max-width: 460px;
+  margin: 0 auto;
+  padding: 2rem 2.25rem 2.5rem 2.25rem;
+  filter: drop-shadow(0 4px 16px rgba(59, 45, 36, 0.15));
+}
+
+/* Header row: "NO." | [POSTS] | count */
+.paper-pad-header {
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
 }
 
-/* Each post card is a link — remove default link styles */
-.blog-post-card {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.2s ease;
-}
-
-.blog-post-card::after {
-  display: none; /* Remove wavy underline from card links */
-}
-
-.blog-post-card:hover {
-  color: inherit;
-  transform: translateY(-2px);
-}
-
-.blog-post-card-inner {
-  padding: 1.75rem 2rem;
-  transition: box-shadow 0.2s ease;
-}
-
-.blog-post-card:hover .blog-post-card-inner {
-  box-shadow: 0 4px 20px rgba(59, 45, 36, 0.12);
-}
-
-.blog-post-meta {
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: var(--dark-brown);
-  opacity: 0.5;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-.blog-post-card-title {
-  font-size: 1.8rem;
-  color: var(--dark-brown);
-  margin: 0 0 0.5rem 0;
-  font-weight: 400;
-  line-height: 1.2;
-}
-
-.blog-post-card-desc {
-  font-size: 0.8rem;
-  color: var(--dark-brown);
-  opacity: 0.7;
-  margin: 0;
-  line-height: 1.5;
-  font-style: italic;
-}
-
-/* Tags */
-.blog-post-tags {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.blog-tag {
+.paper-pad-no {
   font-size: 0.6rem;
   font-weight: 700;
-  color: var(--flame-burgundy);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  opacity: 0.6;
-  padding: 0.2rem 0.5rem;
+  color: var(--dark-brown);
+  opacity: 0.45;
+}
+
+.paper-pad-title-box {
   border: 1px solid var(--flame-burgundy-32);
-  border-radius: 2px;
+  padding: 0.15rem 0.75rem;
+}
+
+.paper-pad-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dark-brown);
+  opacity: 0.6;
+}
+
+.paper-pad-count {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--dark-brown);
+  opacity: 0.45;
+}
+
+/* Thick double-line divider */
+.paper-pad-divider-thick {
+  border: none;
+  border-top: 2px solid var(--flame-burgundy-32);
+  margin: 0.6rem 0 0.4rem 0;
+}
+
+/* Script title */
+.paper-pad-title {
+  font-size: 3rem;
+  color: var(--ketchup-red);
+  margin: 0.25rem 0 0.75rem 0;
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* Lined area — repeating horizontal lines */
+.paper-pad-lined {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent calc(2.4rem - 1px),
+    var(--flame-burgundy-32) calc(2.4rem - 1px),
+    var(--flame-burgundy-32) 2.4rem
+  );
+}
+
+/* Each line item (post) */
+.paper-pad-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  height: 2.4rem;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease;
+  padding: 0 0.1rem;
+}
+
+/* Remove wavy underline from line items */
+.paper-pad-line::after {
+  display: none;
+}
+
+.paper-pad-line:hover {
+  color: var(--flame-burgundy);
+}
+
+/* Circle bullet */
+.paper-pad-bullet {
+  font-size: 0.6rem;
+  color: var(--dark-brown);
+  opacity: 0.35;
+  flex-shrink: 0;
+  line-height: 2.4rem;
+}
+
+/* Post title text */
+.paper-pad-line-text {
+  font-size: 0.78rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--dark-brown);
+  flex: 1;
+  line-height: 2.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Date on the right side */
+.paper-pad-line-date {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--dark-brown);
+  opacity: 0.4;
+  flex-shrink: 0;
+  line-height: 2.4rem;
+}
+
+.paper-pad-empty {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--dark-brown);
+  opacity: 0.5;
+  line-height: 2.4rem;
 }
 
 
@@ -1124,10 +1181,6 @@ body:has(.blog-page) {
 
   .blog-post-title {
     font-size: 1.6rem;
-  }
-
-  .blog-index-title {
-    font-size: 5rem;
   }
 }
 

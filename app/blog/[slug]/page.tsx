@@ -101,8 +101,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     <div className="blog-page">
       {/* Back navigation — fixed top-left */}
       <nav className="blog-nav">
-        <Link href="/" className="blog-back-link">
-          ← Back to Home
+        <Link href="/blog" className="blog-back-link">
+          ← Back to Posts
         </Link>
       </nav>
 
