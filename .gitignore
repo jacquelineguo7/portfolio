@@ -63,3 +63,6 @@ img-context/
 
 # Custom fonts (if you don't want to commit font files)
 app/fonts/
+
+# Claude
+settings.local.json
