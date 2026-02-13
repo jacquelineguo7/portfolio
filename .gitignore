@@ -65,4 +65,5 @@ img-context/
 app/fonts/
 
 # Claude
+.claude/
 settings.local.json
