@@ -26,12 +26,13 @@ export default function CardDescription() {
       {/* Portfolio and social links section */}
       <p className="description">
         <span className="description-line right-flush">
+          New portfolio loading...{" "}
           <a
             href="https://jacquelineguo.framer.website"
             target="_blank"
             rel="noopener noreferrer"
           >
-            See past work
+            see past work
           {/* </a>{" or "}
           <a
             href="/blog"
