@@ -10,7 +10,9 @@
       "Bash(npx next build:*)",
       "WebFetch(domain:github.com)",
       "Bash(curl:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(npm run build:*)",
+      "Bash(npx tsc --noEmit)"
     ]
   }
 }
